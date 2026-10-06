@@ -1,39 +1,721 @@
 {
-    "start": {
-        "message": "Hello! How can I assist you today?",
-        "options": [
-            {"text": "I need help with my order", "next": "orderHelp"},
-            {"text": "I have a question about shipping", "next": "shippingQuestion"}
-        ]
-    },
-    "orderHelp": {
-        "message": "Sure, I can help with that. What's the issue?",
-        "options": [
-            {"text": "My order is delayed", "next": "delayedOrder"},
-            {"text": "I want to cancel my order", "next": "cancelOrder"}
-        ]
-    },
-    "shippingQuestion": {
-        "message": "Sure, I can help with that. What's your question about shipping?",
-        "options": [
-            {"text": "When will it arrive?", "next": "arrivalTime"},
-            {"text": "What are the shipping methods available?", "next": "shippingMethods"}
-        ]
-    },
-    "delayedOrder": {
-        "message": "I'm sorry to hear that. Let me check the status of your order.",
-        "options": []
-    },
-    "cancelOrder": {
-        "message": "Your order has been canceled. Is there anything else I can help you with?",
-        "options": []
-    },
-    "arrivalTime": {
-        "message": "Your order is expected to arrive in 3-5 business days.",
-        "options": []
-    },
-    "shippingMethods": {
-        "message": "We offer standard, express, and overnight shipping.",
-        "options": []
-    }
+	"start": {
+		"label": "How can we help you?",
+		"options": [
+			{
+				"text": "DNA Kits",
+				"next": "dnaKits"
+			},
+			{
+				"text": "Test Results",
+				"next": "testResults"
+			},
+			{
+				"text": "How To Order Test and/or Kit",
+				"next": "howToOrder"
+			},
+			{
+				"text": "What Test Should I Order?",
+				"next": "whichTest"
+			},
+			{
+				"text": "Appropriate Age for Testing an Animal",
+				"next": "appropriateAge"
+			},
+			{
+				"text": "Breed ID Test",
+				"next": "breedIdTest"
+			},
+			{
+				"text": "Check our Frequently Asked Questions",
+				"next": "faq"
+			},
+			{
+				"text": "None of the above - contact customer service",
+				"next": "contactCustomerService"
+			}
+		]
+	},
+	"dnaKits": {
+		"label": "What species are you inquiring about?",
+		"options": [
+			{
+				"text": "Dogs",
+				"next": "dnaKits_dogs"
+			},
+			{
+				"text": "Other species",
+				"next": "dnaKits_otherSpecies"
+			}
+		]
+	},
+	"testResults": {
+		"label": "Please select one of the options",
+		"options": [
+			{
+				"text": "I received some but not all results",
+				"next": "testResults_partial"
+			},
+			{
+				"text": "I have not received any results",
+				"next": "testResults_none"
+			},
+			{
+				"text": "I received my results but have misplaced them. I need a new copy.",
+				"next": "testResults_misplaced"
+			},
+			{
+				"text": "Someone else tested my animal. I need a copy of the results.",
+				"next": "testResults_someoneElseTested"
+			},
+			{
+				"text": "I need help understanding my results",
+				"next": "testResults_understanding"
+			}
+		]
+	},
+	"howToOrder": {
+		"label": "Please select the species you would like to order a test for",
+		"options": [
+			{
+				"text": "Cat",
+				"next": "howToOrder_cat"
+			},
+			{
+				"text": "Cattle",
+				"next": "howToOrder_cattle"
+			},
+			{
+				"text": "Dog",
+				"next": "howToOrder_dog"
+			},
+			{
+				"text": "Donkey",
+				"next": "howToOrder_donkey"
+			},
+			{
+				"text": "Goat",
+				"next": "howToOrder_goat"
+			},
+			{
+				"text": "Horse",
+				"next": "howToOrder_horse"
+			},
+			{
+				"text": "Pig",
+				"next": "howToOrder_pig"
+			},
+			{
+				"text": "Sheep",
+				"next": "howToOrder_sheep"
+			},
+			{
+				"text": "Other",
+				"next": "howToOrder_other"
+			}
+		]
+	},
+	"whichTest": {
+		"label": "Which species would you like to test?",
+		"options": [
+			{
+				"text": "Cat",
+				"next": "whichTest_cat"
+			},
+			{
+				"text": "Cattle",
+				"next": "whichTest_cattle"
+			},
+			{
+				"text": "Dog",
+				"next": "whichTest_dog"
+			},
+			{
+				"text": "Horse",
+				"next": "whichTest_horse"
+			},
+			{
+				"text": "Goat",
+				"next": "whichTest_goat"
+			},
+			{
+				"text": "Pig",
+				"next": "whichTest_pig"
+			},
+			{
+				"text": "Sheep",
+				"next": "whichTest_sheep"
+			},
+			{
+				"text": "Other",
+				"next": "whichTest_other"
+			}
+		]
+	},
+	"appropriateAge": {
+		"label": "For  cats and dogs, we recommend waiting until puppies and kittens are at least 3 weeks old before testing.\n\nFor other species, hair samples can be collected at any time. However, for very young foals, we recommend pulling hairs from the tail instead of the mane. Mane hairs of very young foals are too thin and do not have good roots for testing.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"breedIdTest": {
+		"label": "Unfortunately, we do not offer a test that will determine an animal's breed or breed makeup. \n\nIf you are looking for DNA tests that are appropriate for your dog's breed, you can filter the list of tests offered by breed at <a href=\"https://vgl.ucdavis.edu/dna-tests/dog\" class=\"chatlink\">Click here.</a>",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"faq": {
+		"label": "Please check our Frequently Asked Questions at <a href=\"https://vgl.ucdavis.edu/resources/faqs\" class=\"chatlink\">Click here.</a>",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"contactCustomerService": {
+		"label": "When inquiring about a specific sample, please provide the sample ID in your email. The link below will open the form in a new window. Alternatively, you can access the form at <a href=\"https://vgl.ucdavis.edu/contact\" class=\"chatlink\">Click here.</a>",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"dnaKits_dogs": {
+		"label": "Have you placed an order through your account?",
+		"options": [
+			{
+				"text": "Yes",
+				"next": "dnaKits_dogs_yes"
+			},
+			{
+				"text": "No",
+				"next": "dnaKits_dogs_no"
+			}
+		]
+	},
+	"dnaKits_otherSpecies": {
+		"label": "If you placed an order online, please check your inbox for an order confirmation email. The email contains an attachment with your sample submission form(s) and instructions. \n\nIf you do not see the confirmation email in your inbox, please check your spam/junk folder.\n\nYou can also print the submission form directly from your account:\n - Log onto <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Select “Login to My Account”\n - Go to “View Tests/Results”\n - Select “All” from the dropdown menu\n - Select the “Print” link to the right of the animal’s name",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"testResults_partial": {
+		"label": "Results are sent as soon as testing concludes. However, some tests can take longer than others to complete. Please allow a few more days for testing to conclude.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"testResults_none": {
+		"label": "How did you submit the sample for testing?",
+		"options": [
+			{
+				"text": "I submitted the sample through my personal MyVGL account",
+				"next": "testResults_none_myvgl"
+			},
+			{
+				"text": "I submitted the sample through a registry",
+				"next": "testResults_none_registry"
+			}
+		]
+	},
+	"testResults_misplaced": {
+		"label": "You can view/print your test results when they have been completed directly from your account:\n - Log onto <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a> \n - Select “Login to My Account”\n - Select “View Tests/Results”\n - Select the “Result” link to the far right of animal’s name",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"testResults_someoneElseTested": {
+		"label": "Unfortunately, due to privacy and confidentiality, we are not able to provide any information about an animal that was tested under a different client's account. Please reach out to the person who tested the animal to request a copy of the results. \n\nAnother possibility is to contact the registry to see if they may be able to provide a copy of the results.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"testResults_understanding": {
+		"label": "The last page of the test report contains a link to our website where you can find information about how to interpret the results. If you have any additional questions, please contact our customer service team for assistance.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"howToOrder_cat": {
+		"label": "What test are you looking to order for your cat(s)?",
+		"options": [
+			{
+				"text": "Parentage Verification (paternity test)",
+				"next": "howToOrder_cat_parentage"
+			},
+			{
+				"text": "Health and/or coat color test",
+				"next": "howToOrder_cat_health"
+			}
+		]
+	},
+	"howToOrder_cattle": {
+		"label": "What test are you looking to order?",
+		"options": [
+			{
+				"text": "Parentage Verification",
+				"next": "howToOrder_cattle_parentage"
+			},
+			{
+				"text": "Health, performance and/or coat color test",
+				"next": "howToOrder_cattle_health"
+			}
+		]
+	},
+	"howToOrder_dog": {
+		"label": "What test are you looking to order?",
+		"options": [
+			{
+				"text": "Parentage Verification",
+				"next": "howToOrder_dog_parentage"
+			},
+			{
+				"text": "Health, performance and/or coat color test",
+				"next": "howToOrder_dog_health"
+			}
+		]
+	},
+	"howToOrder_donkey": {
+		"label": "What test are you looking to order?",
+		"options": [
+			{
+				"text": "Parentage Verification",
+				"next": "howToOrder_donkey_parentage"
+			},
+			{
+				"text": "Coat Color Test",
+				"next": "howToOrder_donkey_coatColor"
+			}
+		]
+	},
+	"howToOrder_goat": {
+		"label": "What test are you looking to order?",
+		"options": [
+			{
+				"text": "Parentage Verification",
+				"next": "howToOrder_goat_parentage"
+			},
+			{
+				"text": "Health, performance and/or coat color test",
+				"next": "howToOrder_goat_health"
+			}
+		]
+	},
+	"howToOrder_horse": {
+		"label": "What test are you looking to order?",
+		"options": [
+			{
+				"text": "Parentage Verification",
+				"next": "howToOrder_horse_parentage"
+			},
+			{
+				"text": "Health, performance and/or coat color test",
+				"next": "howToOrder_horse_health"
+			}
+		]
+	},
+	"howToOrder_pig": {
+		"label": "To order a test, you will first need to create an account on our website:\n - Go to <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a> \n - Select “Create an Account”\n - Create an account online by filling in your information and creating a password\n\nThen, to order the test:\n - Login to your account at: <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Click on \"Order Tests\" and select “Pig” under the drop-down menu\n - Fill in the date of birth, breed and piglet information\n - Add the sire and dam information\n - Read and Select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save” \n     -- If ordering for multiple pigs, click on “Order test(s) for new animal” before checking out and repeat the previous steps for the next animal\n - Select “Proceed to Checkout” \n - Pay Online\n\nYou will receive a payment confirmation email with the submission form attached for you to print. The submission form provides sample instructions and lists our return addresses.\n\nFor information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/pig\" class=\"chatlink\">Click here.</a> \n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"howToOrder_sheep": {
+		"label": "What test are you looking to order?",
+		"options": [
+			{
+				"text": "Parentage Verification",
+				"next": "howToOrder_sheep_parentage"
+			},
+			{
+				"text": "Health test",
+				"next": "howToOrder_sheep_health"
+			}
+		]
+	},
+	"howToOrder_other": {
+		"label": "To order the test, you will first need to create an account on our website:\n - Go to <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a> \n - Select “Create an Account”\n - Create an account online by filling in your information and creating a password\n\nThen, to order the test:\n - Log into your account at: <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Click on \"Order Tests\" and select “Other” under the drop-down menu\n - Select the desired test\n - Fill in the animal information\n - Read and Select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save”\n        -- If ordering for more than one animal, click on “Order test(s) for new animal” before checking out and repeat the previous steps for the next animal\n - Select “Proceed to Checkout”\n - Pay Online\n\nYou will receive a payment confirmation email with the submission form attached for you to print. The submission form provides sample instructions, the return addresses, and a place to tape the sample directly to the form.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"whichTest_cat": {
+		"label": "Our laboratory offers a variety of tests for cats. Click on the link below to view all tests. The page will open in a separate window. \n\nYou can also filter your search by breed and type of test (health or coat color).",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"whichTest_cattle": {
+		"label": "Our laboratory offers a variety of tests for cattle. Click on the link below to view all tests. The page will open in a separate window. \n\nYou can also filter your search by breed and type of test (health, performance or coat color).",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"whichTest_dog": {
+		"label": "Our laboratory offers a variety of tests for dogs. Click on the link below to view all tests. The page will open in a separate window. \n\nYou can also filter your search by breed and type of test (health, performance or coat color).",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"whichTest_horse": {
+		"label": "Our laboratory offers a variety of tests for horses. Click on the link below to view all tests. The page will open in a separate window. \n\nYou can also filter your search by breed and type of test (health, performance or coat color).",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"whichTest_goat": {
+		"label": "Click on the link below to view all DNA tests available for goats. The page will open in a separate window. \n\nYou can also filter your search by breed.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"whichTest_pig": {
+		"label": "Click on the link below to view all DNA tests available for pigs. The page will open in a separate window.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"whichTest_sheep": {
+		"label": "Click on the link below to view all DNA tests available for sheep. The page will open in a separate window.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"whichTest_other": {
+		"label": "Click on the link below to view all species for which DNA testing is available at the VGL. Click on the animal's image to view all available tests.\n\nThe VGL offers DNA testing for over 20 animal species. Don't see your species of interest? Contact our customer service team for additional assistance.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"needAdditionalAssistance": {
+		"label": "Do you need additional assistance?",
+		"options": [
+			{
+				"text": "Yes",
+				"next": "additionalAssistanceMenu"
+			},
+			{
+				"text": "Rate your experience with this support tool",
+				"next": "rateExperience"
+			}
+		]
+	},
+	"dnaKits_dogs_yes": {
+		"label": "When you place an order and select \"Sample Choice B\" (default), a DNA kit is sent to you the next business day via US Mail for no additional charge. \n\nPlease note that kits can take 1-2 weeks to arrive at their US destinations, and up to 4-6 weeks for overseas locations.\n\nIf it has been longer than that, we apologize for the inconvenience. Please contact our customer service team and they will be happy to mail a new kit out to you. \n\nIf time is of the essence, you can provide one of the alternative brushes we accept. Visit <a href=\"https://vgl.ucdavis.edu/sample-collection/dog/interdental-gum\" class=\"chatlink\">Click here.</a> to learn more.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"dnaKits_dogs_no": {
+		"label": "A kit will be sent to you via US mail once you place an order online. \n\nTo order a test, you will first need to create an account on our website:\n - Go to <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a> \n - Select “Create an Account”\n - Create an account online by filling in your information and creating a password\n\nTo order the test:\n - Login to your account at: <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Click on \"Order Tests\" and select \"Dog\" under the drop-down menu\n - Fill in the dog’s information \n - Select test(s) of choice\n - Select either Sample Choice A or B\n          -- “Sample Choice B” is our laboratory’s default and preferred choice, as our cytology brushes have proven to produce more viable samples\n - Read and Select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save” \n          -- If ordering for more than one dog, click on “Order test(s) for new animal” before checking out and repeat the previous steps for the next animal\n - Select “Proceed to Checkout” \n - Pay online\n\nYou will receive a payment confirmation email after completing the checkout process. If you choose Sample Choice B, our laboratory will mail you the pre-labeled cytology brushes to collect the sample and a sample collection brochure. The sample collection brochure will include our laboratory’s mailing addresses. If you select Sample Choice A and choose to use your own interdental/gum brushes, the email will also include the submission form and instructions on how to send in your attached sample.\n\nFor information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/dog\" class=\"chatlink\">Click here.</a> \n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"testResults_none_myvgl": {
+		"label": "Please select a species to view the expected turnaround time for results",
+		"options": [
+			{
+				"text": "Horse",
+				"next": "turnaround_horse"
+			},
+			{
+				"text": "Dogs",
+				"next": "turnaround_dogs"
+			},
+			{
+				"text": "Cats",
+				"next": "turnaround_default"
+			},
+			{
+				"text": "Cattle",
+				"next": "turnaround_default"
+			},
+			{
+				"text": "Goats",
+				"next": "turnaround_goats"
+			},
+			{
+				"text": "Wolf-dog hybrid or Coyote-dog hybrid",
+				"next": "turnaround_default"
+			},
+			{
+				"text": "Other",
+				"next": "turnaround_default"
+			},
+			{
+				"text": "Return to main menu",
+				"next": "start"
+			}
+		]
+	},
+	"testResults_none_registry": {
+		"label": "When a sample is submitted through a registry, results are sent directly to the registry. Per our contract, we are not able to provide results to anyone but the registry.\n\nPlease contact the registry to obtain a copy of your results.\n\nIf you would like to confirm that the VGL has received your sample, or if you need additional assistance, please contact our customer service team with the sample ID for your submission.",
+		"options": [
+			{
+				"text": "Contact Customer Service",
+				"next": "contactCustomerService"
+			},
+			{
+				"text": "Return to Main Menu",
+				"next": "start"
+			}
+		]
+	},
+	"howToOrder_cat_parentage": {
+		"label": "To order parentage verification:\n - Login to your account at: <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Click on \"Order Tests\" and select “Cat” under the drop-down menu\n - Fill in the animal’s information \n - Select \"Parent Verification\"\n - Select \"Verify Sire to this animal\"\n         - - If you know the VGL Case ID of the possible sire(s), you can enter it or you can search for the sire in your account by clicking on \"Search My Account\".\nIf the possible sire has not been tested, select \"Add new sire\". You can add as many sires as needed.\n - Select \"Verify Dam to this animal\" if desired\n         - - If you know the VGL Case ID of the possible dam, you can enter it or you can search for the dam in your account by clicking on \"Search My Account\".\nIf the possible dam has not been tested, select \"Add new dam\". You can add as many dams as needed.\n - Read and select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save” \n         - - If ordering for multiple cats, click on “Order test(s) for new animal” before checking out and repeat the previous steps for the next animal\n - Select “Proceed to Checkout”\n - Pay Online\n\nYou will receive a payment confirmation email with the submission form attached for you to print. The submission form provides sample instructions, the return addresses, and a place to tape the sample directly to the form.\n\nThe sample requirement is a cheek swab using 2 double-ended cotton swabs (all 4 ends used) or 4 single-ended cotton swabs. For information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/cat\" class=\"chatlink\">Click here.</a>\n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"howToOrder_cat_health": {
+		"label": "To order the test, you will first need to create an account on our website:\n - Go to <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a> \n - Select “Create an Account”\n - Create an account online by filling in your information and creating a password\n\nThen, to order the test:\n - Log into your account at: <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Click on \"Order Tests\" and select “Cat” under the drop-down menu\n - Fill in the cat’s information\n - Select test(s) of choice\n - Read and Select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save”\n           - - If ordering for more than one cat, click on “Order test(s) for new animal” before checking out and repeat the previous steps for the next animal\n - Select “Proceed to Checkout”\n - Pay Online\n\nYou will receive a payment confirmation email with the submission form attached for you to print. The submission form provides sample instructions, the return addresses, and a place to tape the sample directly to the form.\n\nThe sample requirement is a cheek swab using 2 double-ended cotton swabs (all 4 ends used) or 4 single-ended cotton swabs. For information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/cat\" class=\"chatlink\">Click here.</a>\n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"howToOrder_cattle_parentage": {
+		"label": "To order parentage verification:\n - Login to your account at: <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Click on \"Order Tests\" and select “Cattle” under the drop-down menu\n - Fill in the animal’s information \n - Select \"Parent Verification\"\n - Select \"Verify Sire to this animal\"\n     -- If you know the VGL Case ID of the possible sire(s), you can enter it or you can search for the sire in your account by clicking on \"Search My Account\".\n     -- If the possible sire has not been tested, select \"Add new sire\". You can add as many sires as needed.\n - Select \"Verify Dam to this animal\" if desired\n     -- If you know the VGL Case ID of the possible dam, you can enter it or you can search for the dam in your account by clicking on \"Search My Account\".\n    -- If the possible dam has not been tested, select \"Add new dam\". You can add as many dams as needed.\n - Read and select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save” \n     -- If ordering for multiple cattle, click on “Order test(s) for new animal” before checking out and repeat the previous steps for the next animal\n - Select “Proceed to Checkout”\n - Pay Online\n\nYou will receive a payment confirmation email with the submission form attached for you to print. The submission form provides sample instructions, the return addresses, and a place to tape the 20-30 hairs from the switch of the tail with the root follicles attached.\n\nFor information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/cattle\" class=\"chatlink\">Click here.</a> \n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"howToOrder_cattle_health": {
+		"label": "To order the test, you will first need to create an account on our website:\n - Go to <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>  \n - Select “Create an Account”\n - Create an account online by filling in your information and creating a password\n\nThen, to order the test:\n - Login to your account at: <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Click on \"Order Tests\" and select “Cattle” under the drop-down menu\n - Fill in the animal’s information \n - Select test(s) of choice\n - Read and select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save” \n     -- If ordering for multiple cattle, click on “Order test(s) for new animal” before checking out and repeat the previous steps for the next animal\n - Select “Proceed to Checkout”\n - Pay Online\n\nYou will receive a payment confirmation email with the submission form attached for you to print. The submission form provides sample instructions, the return addresses, and a place to tape the 20-30 hairs from the switch of the tail with the root follicles attached.\n\nFor information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/cattle\" class=\"chatlink\">Click here.</a> \n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"howToOrder_dog_parentage": {
+		"label": "To order the test, you will first need to create an account on our website:\n - Go to <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>  \n - Select “Create an Account”\n - Create an account online by filling in your information and creating a password\n\nThen, to order the test:\n - Login to your account\n - Select “Dog” under the “Order Tests” drop-down menu\n - Click on \"Dog Parentage/Genetic Markers Form\" at the top left of the order form\n - Fill in the information for the puppies (offspring)\n - Select “Sample Choice B” to have VGL cytology brushes mailed to you at no additional cost\n - Enter the information for the sire (if the dog has already been tested for Genetic Markers at the VGL, there will be no charge for the sire's sample)\n - Enter the information for the Dam (if the dog has already been tested for Genetic Markers at the VGL, there will be no charge for the dam's sample)\n     -- If the sire/dam do not have DNA on file with our laboratory, samples from each will be required. A fee will be charged per sample for genetic markers if not yet tested.\n\nAfter entering the information for the parents:\n - Read and select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save”\n - Select “Proceed to Checkout”\n - Pay Online\n\nYou will receive a payment confirmation email after completing the checkout process. If you choose Sample Choice B, our laboratory will mail you the pre-labeled cytology brushes to collect the sample and a sample collection brochure. The sample collection brochure will include our laboratory’s mailing addresses. If you select Sample Choice A and choose to use your own interdental/gum brushes, the email will also include the submission form and instructions on how to send in your attached sample.\n\nFor information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/dog\" class=\"chatlink\">Click here.</a> \n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"howToOrder_dog_health": {
+		"label": "To order a test, you will first need to create an account on our website:\nGo to <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a> \nSelect “Create an Account”\nCreate an account online by filling in your information and creating a password\n\nTo order the test:\n - Login to your account at: <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Click on \"Order Tests\" and select \"Dog\" under the drop-down menu\n - Fill in the dog’s information \n - Select test(s) of choice\n - Select either Sample Choice A or B\n      -- “Sample Choice B” is our laboratory’s default and preferred choice, as our cytology brushes have proven to produce more viable samples\n - Read and Select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save” \n     -- If ordering for more than one dog, click on “Order test(s) for new animal” before checking out and repeat the previous steps for the next animal\n - Select “Proceed to Checkout” \n - Pay online\n\nYou will receive a payment confirmation email after completing the checkout process. If you choose Sample Choice B, our laboratory will mail you the pre-labeled cytology brushes to collect the sample and a sample collection brochure. The sample collection brochure will include our laboratory’s mailing addresses. If you select Sample Choice A and choose to use your own interdental/gum brushes, the email will also include the submission form and instructions on how to send in your attached sample.\n\nFor information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/dog\" class=\"chatlink\">Click here.</a> \n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"howToOrder_donkey_parentage": {
+		"label": "To order parentage verification:\n - Login to your account at: <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Click on \"Order Tests\" and select “Donkey” under the drop-down menu\n - Fill in the animal’s information \n - Select \"Parent Verification\"\n - Select \"Verify Sire to this animal\"\n     -- If you know the VGL Case ID of the possible sire(s), you can enter it or you can search for the sire in your account by clicking on \"Search My Account\".\n    -- If the possible sire has not been tested, select \"Add new sire\". You can add as many sires as needed.\n - Select \"Verify Dam to this animal\" if desired\n    -- If you know the VGL Case ID of the possible dam, you can enter it or you can search for the dam in your account by clicking on \"Search My Account\".\n    -- If the possible dam has not been tested, select \"Add new dam\". You can add as many dams as needed.\n - Read and select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save” \n      -- If ordering for more than one donkey, click on “Order test(s) for new animal” before checking out and repeat the previous steps for the next animal\n - Select “Proceed to Checkout”\n - Pay Online\n\nYou will receive a payment confirmation email with the submission form attached for you to print. The submission form provides sample instructions and lists our return addresses.\n\nFor information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/horse\" class=\"chatlink\">Click here.</a> \n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"howToOrder_donkey_coatColor": {
+		"label": "To order the test, you will first need to create an account on our website:\n - Go to <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a> \n - Select “Create an Account”\n - Create an account online by filling in your information and creating a password\n\nTo order the test:\n - Login to your account at: <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Click on \"Order Tests\" and select \"Donkey\" under the drop-down menu\n - Fill in the goat’s information\n - Select test(s) of choice\n - Read and Select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save” \n       -- If ordering for more than one donkey, click on “Order test(s) for new animal” before checking out and repeat the previous steps for the next animal\n - Select “Proceed to Checkout”\n - Pay Online\n\nYou will receive a payment confirmation email with the submission form attached for you to print. The submission form provides sample instructions and lists our return addresses.\n\nFor information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/horse\" class=\"chatlink\">Click here.</a>\n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"howToOrder_goat_parentage": {
+		"label": "To order parentage verification:\n - Login to your account at: <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Click on \"Order Tests\" and select “Goat” under the drop-down menu\n - Fill in the animal’s information \n - Select \"Parent Verification\"\n - Select \"Verify Sire to this animal\"\n     -- If you know the VGL Case ID of the possible sire(s), you can enter it or you can search for the sire in your account by clicking on \"Search My Account\".\n    -- If the possible sire has not been tested, select \"Add new sire\". You can add as many sires as needed.\n - Select \"Verify Dam to this animal\" if desired\n    -- If you know the VGL Case ID of the possible dam, you can enter it or you can search for the dam in your account by clicking on \"Search My Account\".\n    -- If the possible dam has not been tested, select \"Add new dam\". You can add as many dams as needed.\n - Read and select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save” \n      -- If ordering for more than one goat, click on “Order test(s) for new animal” before checking out and repeat the previous steps for the next animal\n - Select “Proceed to Checkout”\n - Pay Online\n\nYou will receive a payment confirmation email with the submission form attached for you to print. The submission form provides sample instructions and lists our return addresses.\n\nFor information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/goat\" class=\"chatlink\">Click here.</a> \n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"howToOrder_goat_health": {
+		"label": "To order the test, you will first need to create an account on our website:\n - Go to <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a> \n - Select “Create an Account”\n - Create an account online by filling in your information and creating a password\n\nTo order the test:\n - Login to your account at: <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Click on \"Order Tests\" and select \"Goat\" under the drop-down menu\n - Fill in the goat’s information\n - Select test(s) of choice\n - Read and Select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save” \n       -- If ordering for more than one goat, click on “Order test(s) for new animal” before checking out and repeat the previous steps for the next animal\n - Select “Proceed to Checkout”\n - Pay Online\n\nYou will receive a payment confirmation email with the submission form attached for you to print. The submission form provides sample instructions and lists our return addresses.\n\nFor information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/goat\" class=\"chatlink\">Click here.</a> \n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"howToOrder_horse_parentage": {
+		"label": "To order Parent Verification, you will first create an account on our website:\n - Go to <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Select “Create an Account”\n - Create an account online filling in your information and creating a password\n\nThen, to order the test:\n - Login to your account\n - Select “Order Tests” and \"Horse\" under the drop-down menu\n - Fill in the offspring’s information\n - Select “Parent Verification”\n\nIf the sire/dam already have DNA on file with our laboratory and you have their case numbers:\n - Select “Verify Sire to this Animal”\n - Select “Enter Name/Reg + VGL Case Number”\n - Enter the information for the sire\n - Select “Verify Dam to this Animal”\n - Select “Enter Name/Reg + VGL Case Number”\n - Enter the information for the Dam\n\nIf the sire/dam do NOT have DNA on file with our laboratory (samples from each will be required):\n - Select “Verify Sire to this Animal”\n - Select “Add New Sire”\n - Enter the information for the sire and select “Save New Sire”\n - Select “Verify Dam to this Animal”\n - Select “Add New Dam”\n - Enter the information for the dam and select “Save New Dam”\n\nAfter entering the information for the parents:\n - Read and select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save”\n - Select “Proceed to Checkout”\n - Pay Online\n\nYou will receive a payment confirmation email with the submission form attached for you to print. The submission form will provide sample collection instructions and our return addresses.\n\nFor information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/horse\" class=\"chatlink\">Click here.</a>\n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"howToOrder_horse_health": {
+		"label": "To order a test, you will first need to create an account on our website:\n - Go to <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a> \n - Select “Create an Account”\n - Create an account online by filling in your information and creating a password\n\nTo order the test:\n - Login to your account at: <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Click on \"Order Tests\" and select \"Horse\" under the drop-down menu\n - Fill in the horse’s information\n - Select test(s) of choice\n - Read and Select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save” \n         -- If ordering for more than one horse, click on “Order test(s) for new animal” before checking out and repeat the previous steps for the next animal\n - Select “Proceed to Checkout”\n - Pay Online\n\nYou will receive a payment confirmation email with the submission form attached for you to print. The submission form will provide sample instructions, our return addresses, and a place to tape the 20-30 mane and/or tail hairs with the root follicles attached.\n\nFor information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/horse\" class=\"chatlink\">Click here.</a> \n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"howToOrder_sheep_parentage": {
+		"label": "To order parentage verification:\n - Login to your account at: <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Click on \"Order Tests\" and select “Sheep” under the drop-down menu\n - Fill in the animal’s information \n - Select \"Parent Verification\"\n - Select \"Verify Sire to this animal\"\n         -- If you know the VGL Case ID of the possible sire(s), you can enter it or you can search for the sire in your account by clicking on \"Search My Account\".\nIf the possible sire has not been tested, select \"Add new sire\". You can add as many sires as needed.\n - Select \"Verify Dam to this animal\" if desired\n         -- If you know the VGL Case ID of the possible dam, you can enter it or you can search for the dam in your account by clicking on \"Search My Account\".\nIf the possible dam has not been tested, select \"Add new dam\". You can add as many dams as needed.\n - Read and select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save” \n       -- If ordering for multiple sheep, click on “Order test(s) for new animal” before checking out and repeat the previous steps for the next animal\n - Select “Proceed to Checkout”\n - Pay Online\n\nYou will receive a payment confirmation email with the submission form attached for you to print. The submission form provides sample instructions and lists our return addresses.\n\nFor information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/sheep\" class=\"chatlink\">Click here.</a> \n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"howToOrder_sheep_health": {
+		"label": "To order the test, you will first need to create an account on our website:\n - Go to <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a> \n - Select “Create an Account”\n - Create an account online by filling in your information and creating a password\n\nTo order the test:\n - Login to your account at: <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Click on \"Order Tests\" and select “Sheep” under the drop-down menu\n - Fill in the sheep’s information\n - Select test(s) of choice\n - Fill in veterinarian information, if needed\n - Read and Select “Terms and Conditions”\n - Read and Select the checkbox that acknowledges our current turnaround time\n - Select “Save” \n           - - If ordering for multiple sheep, click on “Order test(s) for new animal” before checking out and repeat the previous steps for the next animal\n - Select “Proceed to Checkout” \n - Pay Online\n\nYou will receive a payment confirmation email with the submission form attached for you to print. The submission form provides sample instructions and lists our return addresses.\n\nFor information about collecting a sufficient sample: <a href=\"https://vgl.ucdavis.edu/sample-collection/sheep\" class=\"chatlink\">Click here.</a> \n\nWe strongly recommend obtaining a tracking number when you mail the samples back so they can be monitored in transit.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"additionalAssistanceMenu": {
+		"label": "Please select one of the options below",
+		"options": [
+			{
+				"text": "Contact Customer Service",
+				"next": "contactCustomerService"
+			},
+			{
+				"text": "Return to main menu",
+				"next": "start"
+			}
+		]
+	},
+	"rateExperience": {
+		"label": "How was your experience with this support tool?",
+		"options": []
+	},
+	"turnaround_horse": {
+		"label": "Our average turnaround time is approximately 10 business days from the day a sample is received for results to be reported, except for Gray Copy Number and Skeletal Atavism which take an average of 15 business days. The same turnaround time should be expected when a new test is added to a sample we already have at the laboratory.\n\nOnce testing concludes, results will be sent to the email address in your My VGL account.\n\nYou can also view/print your test results when they have been completed directly from your account:\n - Log onto <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Select “Login to My Account”\n - Select “View Tests/Results”\n - Select the “Result” link to the far right of animal’s name\n\nIf it has been longer than expected, please contact our customer service team so they can further assist you.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"turnaround_dogs": {
+		"label": "Our average turnaround time is approximately 15 business days from the day a sample is received for results to be reported. The same turnaround time should be expected when a new test is added to a sample we already have at the laboratory.\n\nOnce testing concludes, results will be sent to the email address in your My VGL account.\n\nYou can also view/print your test results when they have been completed directly from your account:\n - Go to <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Select “Login to My Account”\n - Select “View Tests/Results”\n - Select the “Result” link to the far right of animal’s name\n\nIf it has been more than 15 business days, please contact our customer service team so they can further assist you.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"turnaround_default": {
+		"label": "Our average turnaround time is approximately 15 business days from the day a sample is received for results to be reported. The same turnaround time should be expected when a new test is added to a sample we already have at the laboratory.\n\nOnce testing concludes, results will be sent to the email address in your My VGL account.\n\nYou can also view/print your test results when they have been completed directly from your account:\n - Go to <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Select “Login to My Account”\n - Select “View Tests/Results”\n - Select the “Result” link to the far right of animal’s name\n\nIf it has been more than 15 business days, please contact our customer service team so they can further assist you.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"turnaround_goats": {
+		"label": "Our average turnaround time for parentage verification is approximately 24 business days from the day a sample is received for results to be reported. The same turnaround time should be expected when a new test is added to a sample we already have at the laboratory. Other goat tests can take approximately 15 business days.\n\nOnce testing concludes, results will be sent to the email address in your My VGL account.\n\nYou can also view/print your test results when they have been completed directly from your account:\n - Go to <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Select “Login to My Account”\n - Select “View Tests/Results”\n - Select the “Result” link to the far right of animal’s name\n\nIf it has been more than 15 or 24 business days, depending on test ordered, please contact our customer service team so they can further assist you.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"feedbackThanks": {
+		"label": "Thank you for your feedback.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	},
+	"inquiryResolved": {
+		"label": "We are glad we were able to resolve your inquiry. Please contact us again if you need any further assistance.",
+		"options": [
+			{
+				"text": "Need Additional Assistance?",
+				"next": "needAdditionalAssistance"
+			}
+		]
+	}
 }
