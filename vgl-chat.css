@@ -1,0 +1,233 @@
+/* VGL chatbot widget. Colors and type follow vgl.ucdavis.edu (UC Davis brand).
+   Everything is scoped under #vgl-chat so it cannot clash with the host page.
+   Sizes are in px, not rem, so a host theme that changes the root font size cannot shrink the widget. */
+#vgl-chat {
+	--vgl-blue: #022851;
+	--vgl-gold: #FFBF00;
+	--vgl-gold-light: #FFECB2;
+	--vgl-link: #13639E;
+	--vgl-bg-light: #EBF3FA;
+	--vgl-border: #DBDBDB;
+	--vgl-font: proxima-nova, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.4;
+}
+
+#vgl-chat,
+#vgl-chat * {
+	box-sizing: border-box;
+	font-family: var(--vgl-font);
+	letter-spacing: normal;
+	text-transform: none;
+}
+
+#vgl-chat section,
+#vgl-chat header,
+#vgl-chat nav,
+#vgl-chat div {
+	margin: 0;
+}
+
+#vgl-chat button {
+	margin: 0;
+	font-size: inherit;
+	line-height: inherit;
+	border-radius: 0;
+}
+
+/* Launcher: matches the site's gold call-to-action buttons */
+#vgl-chat .vgl-chat-launcher {
+	position: fixed;
+	right: 32px;
+	bottom: 32px;
+	z-index: 10000;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 8px 20px 8px 8px;
+	border: 0;
+	background: var(--vgl-gold);
+	color: var(--vgl-blue);
+	font-size: 17.6px;
+	font-weight: 700;
+	box-shadow: 0 4px 12px rgba(2, 40, 81, 0.3);
+	cursor: pointer;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#vgl-chat .vgl-chat-launcher:hover,
+#vgl-chat .vgl-chat-launcher:focus-visible {
+	background: var(--vgl-blue);
+	color: #fff;
+}
+
+#vgl-chat .vgl-chat-logo {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: #fff;
+}
+
+#vgl-chat.vgl-chat-open .vgl-chat-launcher {
+	display: none;
+}
+
+/* Chat window */
+#vgl-chat .vgl-chat-window {
+	position: fixed;
+	right: 32px;
+	bottom: 32px;
+	z-index: 10000;
+	display: none;
+	flex-direction: column;
+	width: 384px;
+	max-width: calc(100vw - 32px);
+	height: 544px;
+	max-height: calc(100vh - 64px);
+	background: #fff;
+	border: 1px solid var(--vgl-border);
+	box-shadow: 0 8px 24px rgba(2, 40, 81, 0.25);
+	color: #000;
+}
+
+#vgl-chat.vgl-chat-open .vgl-chat-window {
+	display: flex;
+}
+
+#vgl-chat .vgl-chat-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px 16px;
+	background: var(--vgl-blue);
+	border-bottom: 4px solid var(--vgl-gold);
+	color: #fff;
+}
+
+#vgl-chat .vgl-chat-title {
+	font-size: 18.4px;
+	font-weight: 700;
+}
+
+#vgl-chat .vgl-chat-close {
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: #fff;
+	font-size: 25.6px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+#vgl-chat .vgl-chat-close:hover,
+#vgl-chat .vgl-chat-close:focus-visible {
+	color: var(--vgl-gold);
+}
+
+#vgl-chat .vgl-chat-body {
+	flex: 1;
+	overflow-y: auto;
+	padding: 16px;
+}
+
+/* Bot message */
+#vgl-chat .vgl-chat-message {
+	margin-bottom: 16px;
+	padding: 13.6px 16px;
+	background: var(--vgl-bg-light);
+	border-left: 4px solid var(--vgl-blue);
+	font-size: 15.2px;
+	line-height: 1.5;
+	white-space: pre-wrap;  /* labels use \n and leading spaces for line breaks and sub-steps */
+}
+
+#vgl-chat .vgl-chat-message a {
+	color: var(--vgl-link);
+	font-weight: 700;
+	text-decoration: underline;
+}
+
+#vgl-chat .vgl-chat-message a:hover {
+	color: var(--vgl-blue);
+	background: var(--vgl-gold-light);
+}
+
+/* Answer buttons: navy outline like the site's secondary buttons */
+#vgl-chat .vgl-chat-options button {
+	display: block;
+	position: relative;
+	width: 100%;
+	margin: 0 0 8px;
+	padding: 9.6px 32px 9.6px 13.6px;
+	border: 2px solid var(--vgl-blue);
+	background: #fff;
+	color: var(--vgl-blue);
+	font-size: 15.2px;
+	font-weight: 700;
+	text-align: left;
+	cursor: pointer;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#vgl-chat .vgl-chat-options button::after {
+	content: "\203A";
+	position: absolute;
+	right: 13.6px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--vgl-gold);
+	font-size: 20.8px;
+}
+
+#vgl-chat .vgl-chat-options button:hover,
+#vgl-chat .vgl-chat-options button:focus-visible {
+	background: var(--vgl-blue);
+	color: #fff;
+}
+
+/* Back / Main menu bar */
+#vgl-chat .vgl-chat-nav {
+	display: flex;
+	gap: 8px;
+	padding: 8px 16px;
+	border-top: 1px solid var(--vgl-border);
+}
+
+#vgl-chat .vgl-chat-nav[hidden] {
+	display: none;
+}
+
+#vgl-chat .vgl-chat-nav button {
+	padding: 4.8px 9.6px;
+	border: 0;
+	background: transparent;
+	color: var(--vgl-link);
+	font-size: 14.4px;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+#vgl-chat .vgl-chat-nav button:hover,
+#vgl-chat .vgl-chat-nav button:focus-visible {
+	color: var(--vgl-blue);
+	text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+	#vgl-chat .vgl-chat-window {
+		right: 0;
+		bottom: 0;
+		width: 100vw;
+		max-width: 100vw;
+		height: 100vh;
+		max-height: 100vh;
+		border: 0;
+	}
+
+	#vgl-chat .vgl-chat-launcher {
+		right: 16px;
+		bottom: 16px;
+	}
+}
