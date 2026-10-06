@@ -1,0 +1,39 @@
+{
+    "start": {
+        "message": "Hello! How can I assist you today?",
+        "options": [
+            {"text": "I need help with my order", "next": "orderHelp"},
+            {"text": "I have a question about shipping", "next": "shippingQuestion"}
+        ]
+    },
+    "orderHelp": {
+        "message": "Sure, I can help with that. What's the issue?",
+        "options": [
+            {"text": "My order is delayed", "next": "delayedOrder"},
+            {"text": "I want to cancel my order", "next": "cancelOrder"}
+        ]
+    },
+    "shippingQuestion": {
+        "message": "Sure, I can help with that. What's your question about shipping?",
+        "options": [
+            {"text": "When will it arrive?", "next": "arrivalTime"},
+            {"text": "What are the shipping methods available?", "next": "shippingMethods"}
+        ]
+    },
+    "delayedOrder": {
+        "message": "I'm sorry to hear that. Let me check the status of your order.",
+        "options": []
+    },
+    "cancelOrder": {
+        "message": "Your order has been canceled. Is there anything else I can help you with?",
+        "options": []
+    },
+    "arrivalTime": {
+        "message": "Your order is expected to arrive in 3-5 business days.",
+        "options": []
+    },
+    "shippingMethods": {
+        "message": "We offer standard, express, and overnight shipping.",
+        "options": []
+    }
+}
