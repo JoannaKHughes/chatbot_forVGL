@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>VGL Support</title>
+	<link rel="stylesheet" href="style.css" />
+	<script src="script.js" defer></script>
+</head>
+<body>
+	<button type="button" id="chat-icon" aria-controls="chatbox" aria-expanded="false">
+		<img class="chat-img" src="vglLogo.png" alt="" />
+		<span class="help">Need help?</span>
+	</button>
+
+	<section id="chatbox" role="dialog" aria-label="VGL Support">
+		<header>
+			<span class="chat-title">VGL Support</span>
+			<button type="button" id="exit" aria-label="Close chat">&times;</button>
+		</header>
+		<div class="chat-body">
+			<div class="message" id="greeting" aria-live="polite"></div>
+			<div class="options" id="options"></div>
+		</div>
+	</section>
+</body>
+</html>
