@@ -448,6 +448,10 @@
 				"next": "additionalAssistanceMenu"
 			},
 			{
+				"text": "No, my question was answered",
+				"next": "inquiryResolved"
+			},
+			{
 				"text": "Rate your experience with this support tool",
 				"next": "rateExperience"
 			}
@@ -662,7 +666,20 @@
 	},
 	"rateExperience": {
 		"label": "How was your experience with this support tool?",
-		"options": []
+		"options": [
+			{
+				"text": "Very helpful",
+				"next": "feedbackThanks"
+			},
+			{
+				"text": "Somewhat helpful",
+				"next": "feedbackThanks"
+			},
+			{
+				"text": "Not helpful",
+				"next": "feedbackThanks"
+			}
+		]
 	},
 	"turnaround_horse": {
 		"label": "Our average turnaround time is approximately 10 business days from the day a sample is received for results to be reported, except for Gray Copy Number and Skeletal Atavism which take an average of 15 business days. The same turnaround time should be expected when a new test is added to a sample we already have at the laboratory.\n\nOnce testing concludes, results will be sent to the email address in your My VGL account.\n\nYou can also view/print your test results when they have been completed directly from your account:\n - Log onto <a href=\"https://vgl.ucdavis.edu\" class=\"chatlink\">Click here.</a>\n - Select “Login to My Account”\n - Select “View Tests/Results”\n - Select the “Result” link to the far right of animal’s name\n\nIf it has been longer than expected, please contact our customer service team so they can further assist you.",
@@ -704,8 +721,8 @@
 		"label": "Thank you for your feedback.",
 		"options": [
 			{
-				"text": "Need Additional Assistance?",
-				"next": "needAdditionalAssistance"
+				"text": "Return to main menu",
+				"next": "start"
 			}
 		]
 	},
@@ -713,8 +730,12 @@
 		"label": "We are glad we were able to resolve your inquiry. Please contact us again if you need any further assistance.",
 		"options": [
 			{
-				"text": "Need Additional Assistance?",
-				"next": "needAdditionalAssistance"
+				"text": "Rate your experience with this support tool",
+				"next": "rateExperience"
+			},
+			{
+				"text": "Return to main menu",
+				"next": "start"
 			}
 		]
 	}

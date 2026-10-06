@@ -12,47 +12,35 @@ const greeting = document.getElementById('greeting');
 const optionsDiv = document.getElementById('options');
 const exit = document.getElementById('exit');
 
-chatIcon.addEventListener('click', function() {
-    if (chatbox.style.display === 'none' || chatbox.style.display === '') {
-        chatbox.style.display = 'block';
-        displayMessage(chatConfig.start);
-    chatIcon.style.display = 'none';
-    } else {
-        chatbox.style.display = 'none';
-		chatIcon.style.dsiplay = 'none';
-    }
-});
+function openChat() {
+	chatbox.classList.add('open');
+	chatIcon.classList.add('hidden');
+	chatIcon.setAttribute('aria-expanded', 'true');
+	displayMessage(chatConfig.start);
+}
 
-//exit
-exit.addEventListener('click', function() {
-	 if (chatIcon.style.display === 'none' || chatIcon.style.display === ''){
-    chatbox.style.display = 'none';
-    chatIcon.style.display = '';
-	 }
-	 else{
-		 
-        chatbox.style.display = 'block';
-        displayMessage(chatConfig.start);
-    chatIcon.style.display = 'none';
-	 }
-});
+function closeChat() {
+	chatbox.classList.remove('open');
+	chatIcon.classList.remove('hidden');
+	chatIcon.setAttribute('aria-expanded', 'false');
+	chatIcon.focus();
+}
+
+chatIcon.addEventListener('click', openChat);
+exit.addEventListener('click', closeChat);
 
 // Function to display the message and options
 function displayMessage(node) {
     if (!node) return;  // config not loaded yet
     greeting.innerHTML = node.label;  // Using innerHTML to allow HTML tags to render
     optionsDiv.innerHTML = '';
+    greeting.parentElement.scrollTop = 0;
     node.options.forEach(option => {
         const button = document.createElement('button');
         button.textContent = option.text;
         button.addEventListener('click', () => {
             const nextNode = chatConfig[option.next];
-            if (nextNode) {
-                displayMessage(nextNode);
-            } else {
-                alert('End of conversation!');
-                // Optionally, you can add a reset function here to start over
-            }
+            displayMessage(nextNode || chatConfig.start);  // unknown node: back to main menu
         });
         optionsDiv.appendChild(button);
     });

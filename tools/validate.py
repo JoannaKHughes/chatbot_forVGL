@@ -8,7 +8,7 @@ import json
 import sys
 from pathlib import Path
 
-ALLOWED_UNREACHABLE = {'feedbackThanks', 'inquiryResolved'}  # not linked yet, kept for the planned rating step
+ALLOWED_UNREACHABLE = set()  # node names allowed to have no incoming link
 
 
 def main():

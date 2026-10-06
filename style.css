@@ -1,163 +1,188 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-/* CSS Reset */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    border: 0;
-    outline: 0;
-    scroll-behavior: smooth;
-    font-family: 'Poppins', 'sans-serif';
+/* Colors and type follow vgl.ucdavis.edu (UC Davis brand) */
+:root {
+	--aggie-blue: #022851;
+	--aggie-gold: #FFBF00;
+	--gold-light: #FFECB2;
+	--link-blue: #13639E;
+	--bg-light: #EBF3FA;
+	--border: #DBDBDB;
+	--font: proxima-nova, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
 }
 
-html {
-    font-size: 62.5%; /* Root font size for scalable units (10px if the browser's base is 16px) */
-    overflow-x: hidden;
+#chat-icon,
+#chatbox,
+#chatbox * {
+	box-sizing: border-box;
+	font-family: var(--font);
 }
 
-body {
-    background: #E3F2FD;
-}
-
+/* Launcher: matches the site's gold call-to-action buttons */
 #chat-icon {
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    position: fixed;
-    bottom: 2vh;
-    right: 2vw;
-    gap: 1rem;
-    background-color: #14447a;
-    border-radius: 5rem;
-    padding: 1rem;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.6rem;
-}
-
-/* Chat Image */
-.chat-img {
-    height: 8vw; /* Responsive size */
-    width: 8vw;
-    max-height: 6rem;
-    max-width: 6rem;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Help Text */
-.help {
-    font-size: 1.8rem; /* Relative size for scaling */
-    margin: 0;
-    color: white;
-}
-
-
-
-#chatbox {
-    display: none;
-    position: fixed;
-    bottom: 8vh;
-    right: 2vw;
-    width: 45vw;
-    max-width: 35rem;
-    height: 55vh;
-    max-height: 45rem;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 1rem;
-    overflow-y: auto;
-	margin-top: 15rem;  
-    padding: 1rem;
-}
-
-#chatbot header {
-    padding: 1.6rem;
-    text-align: center;
-    color: black;
-    background-color: #14447a;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 3rem;
-    align-items: center; 
-}
-
-.message {
-    padding: 1rem; /* Scaled padding */
-    margin-bottom: 0.5rem;
-    margin-right: 1.5rem;
-    margin-left: 0.5rem;
-	margin-top: 6rem;
-    background-color: #14447a;
-    border-radius: 0.5rem;
-    display: block;
-	color:white;
-	font-size: 1.6rem;
-	text-align: center;
-}
-
-#support header {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 1rem; 
-    font-size: 2rem;
-    text-align: center;
-	margin-bottom: 2rem;
-    height: 5rem;
-    color: white;
-    background-color: #0a2440;	
 	position: fixed;
-}
-#support h2 {
-    margin: 0; 
+	right: 2rem;
+	bottom: 2rem;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.5rem 1.25rem 0.5rem 0.5rem;
+	border: 0;
+	background: var(--aggie-gold);
+	color: var(--aggie-blue);
+	box-shadow: 0 4px 12px rgba(2, 40, 81, 0.3);
+	cursor: pointer;
+	transition: background-color 0.2s ease;
 }
 
+#chat-icon:hover,
+#chat-icon:focus-visible {
+	background: var(--aggie-blue);
+	color: #fff;
+}
+
+#chat-icon.hidden {
+	display: none;
+}
+
+.chat-img {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	background: #fff;
+}
+
+.help {
+	font-size: 1.1rem;
+	font-weight: 700;
+}
+
+/* Chat window */
+#chatbox {
+	position: fixed;
+	right: 2rem;
+	bottom: 2rem;
+	z-index: 1000;
+	display: none;
+	flex-direction: column;
+	width: 24rem;
+	max-width: calc(100vw - 2rem);
+	height: 34rem;
+	max-height: calc(100vh - 4rem);
+	background: #fff;
+	border: 1px solid var(--border);
+	box-shadow: 0 8px 24px rgba(2, 40, 81, 0.25);
+}
+
+#chatbox.open {
+	display: flex;
+}
+
+#chatbox header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.75rem 1rem;
+	background: var(--aggie-blue);
+	border-bottom: 4px solid var(--aggie-gold);
+	color: #fff;
+}
+
+.chat-title {
+	font-size: 1.15rem;
+	font-weight: 700;
+}
 
 #exit {
-    background-color: #1e3a5f; /* Box background color */
-    color: white; /* Text color */
-    padding: 0.5rem 1rem; /* Inner spacing */
-    border: 1px solid #0a2440; /* Optional: Adds a border */
-    border-radius: 5px; /* Optional: Rounds the corners */
-    font-size: 1.5rem; /* Adjusts font size */
-    text-align: center; /* Centers text inside the box */
-    flex: 0 0 auto; /* Prevents the boxes from growing or shrinking */	
-    cursor: pointer;
-	float: right;
+	width: 2rem;
+	height: 2rem;
+	border: 0;
+	background: transparent;
+	color: #fff;
+	font-size: 1.6rem;
+	line-height: 1;
+	cursor: pointer;
 }
 
+#exit:hover,
+#exit:focus-visible {
+	color: var(--aggie-gold);
+}
+
+.chat-body {
+	flex: 1;
+	overflow-y: auto;
+	padding: 1rem;
+}
+
+/* Bot message */
+.message {
+	margin-bottom: 1rem;
+	padding: 0.85rem 1rem;
+	background: var(--bg-light);
+	border-left: 4px solid var(--aggie-blue);
+	color: #000;
+	font-size: 0.95rem;
+	line-height: 1.5;
+	white-space: pre-line;  /* labels use \n for line breaks */
+}
+
+.message a.chatlink {
+	color: var(--link-blue);
+	font-weight: 700;
+	text-decoration: underline;
+}
+
+.message a.chatlink:hover {
+	color: var(--aggie-blue);
+	background: var(--gold-light);
+}
+
+/* Answer buttons: navy outline like the site's secondary buttons */
 .options button {
-    display: block; /* Makes each button a block element, placing them on separate lines */
-    width: 100%; /* Optional: Makes buttons stretch to the full container width */
-    padding: 0.5rem;
-    text-align: center; /* Centers text within the button */
-    cursor: pointer;
-    margin: 0.5rem 0; /* Adds vertical spacing between buttons */
-    border-radius: 0.2rem;
-    font-size: 1.3rem;
-    transition: background-color 0.3s ease; /* Smooth color transition */
+	display: block;
+	width: 100%;
+	margin: 0 0 0.5rem;
+	padding: 0.6rem 2rem 0.6rem 0.85rem;
+	position: relative;
+	border: 2px solid var(--aggie-blue);
+	background: #fff;
+	color: var(--aggie-blue);
+	font-size: 0.95rem;
+	font-weight: 700;
+	text-align: left;
+	cursor: pointer;
+	transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.options button:hover {
-    background-color: #6289b5; /* Darker shade of the default color */
+.options button::after {
+	content: "\203A";
+	position: absolute;
+	right: 0.85rem;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--aggie-gold);
+	font-size: 1.3rem;
 }
 
-#exit:hover {
-    background-color: #6289b5; /* Darker shade of the default color */
+.options button:hover,
+.options button:focus-visible {
+	background: var(--aggie-blue);
+	color: #fff;
 }
 
-a.chatlink {
-  color: #26F7FD;
-  text-decoration: underline;
-}
+@media (max-width: 480px) {
+	#chatbox {
+		right: 0;
+		bottom: 0;
+		width: 100vw;
+		max-width: 100vw;
+		height: 100vh;
+		max-height: 100vh;
+		border: 0;
+	}
 
-a.chatlink:hover {
-  color: yellow;
-  text-decoration: underline;
+	#chat-icon {
+		right: 1rem;
+		bottom: 1rem;
+	}
 }
